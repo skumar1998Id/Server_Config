@@ -21,8 +21,3 @@ eureka:
       defaultZone: http://localhost:8761/eureka   # ✅ include /eureka for correctness
     register-with-eureka: true
     fetch-registry: true
-
-logging:
-  level:
-    ROOT: INFO
-    com.techforu.order: DEBUG   # ✅ changed from user to order (if your base package is com.techforu.order)
