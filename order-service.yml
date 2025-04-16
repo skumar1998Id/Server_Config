@@ -4,7 +4,7 @@ spring:
   application:
     name: order-service   # ✅ updated name to reflect Order Service
   datasource:
-    url: jdbc:mysql://localhost:3306/order-micro?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&createDatabaseIfNotExist=true
+    url: jdbc:mysql://192.168.23.141:3306/order-micro?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&createDatabaseIfNotExist=true
     username: root
     password: Creative2089!
   jpa:
@@ -17,6 +17,6 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka   # ✅ include /eureka for correctness
+      defaultZone: http://192.168.23.141:8761/eureka   # ✅ include /eureka for correctness
     register-with-eureka: true
     fetch-registry: true
