@@ -1,12 +1,19 @@
+# application-docker.yml
 server:
   port: 8082
+
 spring:
   application:
-    name: order-service   # ✅ updated name to reflect Order Service
+    name: order-service
+
+  config:
+    import: configserver:http://config-server:8888
+
   datasource:
     url: jdbc:mysql://192.168.23.141:3306/order-micro?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&createDatabaseIfNotExist=true
     username: root
     password: Creative2089!
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,9 +21,13 @@ spring:
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQLDialect
 
+  cloud:
+    config:
+      fail-fast: true
+
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://192.168.23.141:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
